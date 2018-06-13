@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '../../../../../node_modules/@angular/core';
 
 // model
 import { Product } from '../../../models/product';
@@ -7,7 +7,7 @@ import { Product } from '../../../models/product';
 import { ProductService } from '../../../services/product.service';
 
 // toastr
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from '../../../../../node_modules/ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -23,12 +23,13 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    debugger
     return this.productService.getProducts()
       .snapshotChanges().subscribe(item => {
         this.productList = [];
         item.forEach(element => {
           let x = element.payload.toJSON();
-          x["$key"] = element.key;
+          x['$key'] = element.key;
           this.productList.push(x as Product);
         });
       });

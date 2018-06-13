@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '../../../node_modules/@angular/core';
 
 // Firebase
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -21,6 +21,7 @@ export class ProductService {
 
   insertProduct(product: Product)
   {
+    debugger
     this.productList.push({
       name: product.name,
       category: product.category,
